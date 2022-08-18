@@ -1,5 +1,7 @@
 import React from "react";
 const Square = (props) => {
+
+
   const handleClick = () => {
     if (!props.squareValue) {
         if (props.player) {
