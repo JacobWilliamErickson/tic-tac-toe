@@ -3,6 +3,8 @@ import Card from '../UI/Card'
 import Button from '../UI/Button'
 import classes from './WinnerModal.module.css'
 const WinnerModal = (props) => {
+
+  
   return (
     <div>
 <div className={classes.backdrop} onClick={props.onOkay}></div>
