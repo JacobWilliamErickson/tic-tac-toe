@@ -18,52 +18,7 @@ function App() {
     setPlayer(true)
   }
 
- const checkForWinner=(squares)=>{ 
-  if((squares[0]==='X'&&squares[1]==='X'&&squares[2]==='X')||(squares[3]==='X'&&squares[4]==='X'&&squares[5]==='X')||
- (squares[6]==='X'&&squares[7]==='X'&&squares[8]==='X')){
-  setWinner({title: "HackBright Wins",
-    message: "The game has ended because Hack Bright placed three logos in a Horizontal line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }
-
- if((squares[0]==='O'&&squares[1]==='O'&&squares[2]==='O')||(squares[3]==='O'&&squares[4]==='O'&&squares[5]==='O')||
- (squares[6]==='O'&&squares[7]==='O'&&squares[8]==='O')){
-  setWinner({title: "DevMountain Wins",
-    message:"The game has ended because DevMountain placed three logos in a Horizontal line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }
-
- if((squares[0]==='X'&&squares[3]==='X'&&squares[6]==='X')||(squares[1]==='X'&&squares[4]==='X'&&squares[7]==='X')||
- (squares[2]==='X'&&squares[5]==='X'&&squares[8]==='X')){
-  setWinner({title: "HackBright Wins",
-    message: "The game has ended because Hack Bright placed three logos in a Vertical line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }
-
- if((squares[0]==='O'&&squares[3]==='O'&&squares[6]==='O')||(squares[1]==='O'&&squares[4]==='O'&&squares[7]==='O')||
- (squares[2]==='O'&&squares[5]==='O'&&squares[8]==='O')){
-  setWinner({title: "DevMountain Wins",
-    message: "The game has ended because DevMountain placed three logos in a Vertical line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }
-
- if((squares[0]==='X'&&squares[4]==='X'&&squares[8]==='X')||(squares[2]==='X'&&squares[4]==='X'&&squares[6]==='X')){
-  setWinner({title: "HackBright Wins",
-    message: "The game has ended because HackBright placed three logos in a Diagonal line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }
-
- if((squares[0]==='O'&&squares[4]==='O'&&squares[8]==='O')||(squares[2]==='O'&&squares[4]==='O'&&squares[6]==='O')){
-  setWinner({title: "DevMountain Wins",
-    message: "The game has ended because DevMountain placed three logos in a Diagonal line",})
-    setSquares(["", "", "", "", "", "", "", "", ""])
-    return;
- }}
+ 
 
 
   return (
@@ -75,8 +30,9 @@ function App() {
       onOkay = {newGameHandler} 
       title={winner.title}
       message={winner.message}
-      winnerCheck = {setWinner} />}
-      <span>{checkForWinner(squares)}</span>
+      winnerCheck = {setWinner}
+      squares={squares}
+      setSquares={setSquares} />}
       <div className="container">
         {squares.map((val, index) => {
           return (
@@ -87,6 +43,7 @@ function App() {
               squares={squares}
               player={player}
               setPlayer={setPlayer}
+              setWinner = {setWinner}
             ></Square>
           );
         })}
